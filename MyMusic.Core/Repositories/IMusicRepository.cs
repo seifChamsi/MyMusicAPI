@@ -7,7 +7,7 @@ namespace MyMusic.Core.Repositories
 {
     public interface IMusicRepository : IRepository<Music>
     {
-        Task<IEnumerable<Music>> GetAllWithArtist();
+        Task<IEnumerable<Music>> GetAllWithArtistAsync();
         Task<Music> GetWithArtistById(int musicId);
         Task<IEnumerable<Music>> GetAllWithArtistByArtistId(int artistId);
     }
