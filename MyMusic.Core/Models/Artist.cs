@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 
 namespace MyMusic.Core
 {
-    public class Artitst
+    public class Artist
     {
-        public Artitst()
+        public Artist()
         {
             Musics = new Collection<Music>();
         }

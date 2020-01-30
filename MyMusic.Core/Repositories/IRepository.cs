@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyMusic.Core.Repositories
 {
-    public interface IRespository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();

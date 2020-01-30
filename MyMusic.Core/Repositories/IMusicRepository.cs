@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace MyMusic.Core.Repositories
 {
-    public interface IMusicRepository
+    public interface IMusicRepository : IRepository<Music>
     {
         Task<IEnumerable<Music>> GetAllWithArtist();
-        Task<Music> GetWithArtistById();
+        Task<Music> GetWithArtistById(int musicId);
         Task<IEnumerable<Music>> GetAllWithArtistByArtistId(int artistId);
     }
 }
