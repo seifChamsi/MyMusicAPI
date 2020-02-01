@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMusic", "MyMusic\MyMusic.csproj", "{B99AFC52-8308-4CC8-9253-5C0896EF993B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMusic", "MyMusic\MyMusic.csproj", "{B99AFC52-8308-4CC8-9253-5C0896EF993B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMusic.Core", "MyMusic.Core\MyMusic.Core.csproj", "{438F6BCC-D1FF-41C5-AEA5-47FB53CD43BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMusic.Core", "MyMusic.Core\MyMusic.Core.csproj", "{438F6BCC-D1FF-41C5-AEA5-47FB53CD43BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMusic.Services", "MyMusic.Services\MyMusic.Services.csproj", "{BD82D799-751B-460D-94DC-1C9C35F08535}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMusic.Services", "MyMusic.Services\MyMusic.Services.csproj", "{BD82D799-751B-460D-94DC-1C9C35F08535}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMusic.Data", "MyMusic.Data\MyMusic.Data.csproj", "{DC657FF7-C1ED-402A-8D53-B86F1B13C381}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMusic.Data", "MyMusic.Data\MyMusic.Data.csproj", "{DC657FF7-C1ED-402A-8D53-B86F1B13C381}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using MyMusic.Core;
 
-namespace MyMusic.Services
+namespace MyMusic.Core.Services
 {
     public interface IMusicService
     {

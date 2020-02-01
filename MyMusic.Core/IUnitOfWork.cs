@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MyMusic.Core.Repositories;
 
-namespace MyMusic.Core.Repositories
+namespace MyMusic.Core
 {
     public interface IUnitOfWork : IDisposable
     {

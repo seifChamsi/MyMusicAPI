@@ -37,7 +37,7 @@ namespace MyMusic.Data.Repositories
         }
         private MyMusicDbContext MyMusicDbContext
         {
-            get { return MyMusicDbContext; }
+            get { return _context as MyMusicDbContext; }
         }
     }
 }
