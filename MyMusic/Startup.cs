@@ -46,7 +46,9 @@ namespace MyMusic
             );
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IMusicService, MusicService>();
-           //services.AddScoped(typeof(IMusicService), typeof(MusicService));
+
+            services.AddScoped<IArtistService, ArtistService>();
+            //services.AddScoped(typeof(IMusicService), typeof(MusicService));
 
         }
 

@@ -10,14 +10,17 @@ namespace MyMusic.Mapping
         public MappingProfile()
         {
             CreateMap<Music, MusicResource>();
-            CreateMap<Artist, ArtistResource>();
-
             CreateMap<MusicResource,Music>();
            
             CreateMap<ArtistResource, Artist>();
+            CreateMap<Artist, ArtistResource>();
 
             CreateMap<SaveMusicResource, Music>();
             CreateMap<Music,SaveMusicResource>();
+
+            CreateMap<SaveArtistResource, Artist>();
+            CreateMap<Artist, SaveArtistResource>();
+
         }
     }
 }

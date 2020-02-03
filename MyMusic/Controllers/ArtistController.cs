@@ -55,7 +55,7 @@ namespace MyMusic.Controllers
             var validator = new SaveArtistResourceValidator();
             var validationResult = await validator.ValidateAsync(saveArtistResource);
 
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
                 return BadRequest(validationResult.Errors);
 
             var artistToCreate = _mapper.Map<SaveArtistResource, Artist>(saveArtistResource);
@@ -68,14 +68,42 @@ namespace MyMusic.Controllers
 
         // PUT: api/Artist/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult<ArtistResource>> UpdateArtist(int id, [FromBody] SaveArtistResource saveArtistResource)
         {
+
+            var validator = new SaveArtistResourceValidator();
+            var validationResult = await validator.ValidateAsync(saveArtistResource);
+
+            if (!validationResult.IsValid || id == 0)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+
+            var artistToUpdated = await _artistService.GetArtistById(id);
+
+            if (artistToUpdated == null)
+                return BadRequest();
+
+            var artist = _mapper.Map<SaveArtistResource, Artist>(saveArtistResource);
+            await _artistService.UpdateArtist(artistToUpdated, artist);
+
+            var updatedArtist = _artistService.GetArtistById(artist.Id);
+            var updatedArtistResource = _mapper.Map<Artist, ArtistResource>(await updatedArtist);
+
+            return Ok(updatedArtistResource);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> DeleteArtist(int id)
         {
+            if (id == 0)
+                return BadRequest();
+            var ArtistToDelete = _artistService.GetArtistById(id);
+
+            await _artistService.DeleteArtist(await ArtistToDelete);
+
+            return NoContent();
         }
     }
 }

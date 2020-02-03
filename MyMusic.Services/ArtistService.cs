@@ -11,25 +11,36 @@ namespace MyMusic.Services
 {
     public class ArtistService : IArtistService
     {
-        public Task<IEnumerable<Artist>> GetAllArtists()
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ArtistService(IUnitOfWork unitOfWork)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
         }
-        public Task<Artist> GetArtistById(int id)
+        public async Task<IEnumerable<Artist>> GetAllArtists()
         {
-            throw new NotImplementedException();
+            return await _unitOfWork.Artists.GetAllWithMusicAsync();
         }
-        public Task<Artist> CreateArtist(Artist newArtist)
+        public async Task<Artist> GetArtistById(int id)
         {
-            throw new NotImplementedException();
+            return await _unitOfWork.Artists.GetWithMusicByIdAsync(id);
         }
-        public Task UpdateArtist(Artist artistToBeUpdated, Artist artist)
+        public async Task<Artist> CreateArtist(Artist newArtist)
         {
-            throw new NotImplementedException();
+             await _unitOfWork.Artists.AddAsync(newArtist);
+             await _unitOfWork.CommitAsync();
+             return newArtist;
         }
-        public Task DeleteArtist(Artist artist)
+        public async Task UpdateArtist(Artist artistToBeUpdated, Artist artist)
         {
-            throw new NotImplementedException();
+            artistToBeUpdated.Name = artist.Name;
+            await _unitOfWork.CommitAsync();
+
+        }
+        public async Task DeleteArtist(Artist artist)
+        {
+            _unitOfWork.Artists.Remove(artist);
+           await _unitOfWork.CommitAsync();
         }
     }
 }

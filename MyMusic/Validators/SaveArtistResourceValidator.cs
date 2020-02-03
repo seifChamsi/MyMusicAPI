@@ -12,7 +12,7 @@ namespace MyMusic.Validators
     {
         public SaveArtistResourceValidator()
         {
-            RuleFor(a => a.Name)
+            RuleFor(A => A.Name)
                 .NotEmpty()
                 .MaximumLength(50);
         }

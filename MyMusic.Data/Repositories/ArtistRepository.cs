@@ -24,7 +24,7 @@ namespace MyMusic.Data.Repositories
         {
             return await myMusicDbContext.Artists
                 .Include(A => A.Musics)
-                .SingleOrDefaultAsync();
+                .SingleOrDefaultAsync(a=>a.Id == id);
         }
 
         private MyMusicDbContext myMusicDbContext
