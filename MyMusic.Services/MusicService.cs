@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyMusic.Core;
+using MyMusic.Core.Models;
 using MyMusic.Core.Services;
 
 namespace MyMusic.Services

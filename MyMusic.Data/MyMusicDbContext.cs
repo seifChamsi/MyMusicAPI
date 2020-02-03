@@ -1,6 +1,7 @@
 ﻿using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using MyMusic.Core;
+using MyMusic.Core.Models;
 using MyMusic.Data.Configurations;
 
 namespace MyMusic.Data

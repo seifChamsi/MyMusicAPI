@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MyMusic.Core.Models;
 
 namespace MyMusic.Core.Services
 {

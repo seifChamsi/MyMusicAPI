@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MyMusic.Core;
+using MyMusic.Core.Models;
 using MyMusic.Core.Repositories;
 
 namespace MyMusic.Data.Repositories

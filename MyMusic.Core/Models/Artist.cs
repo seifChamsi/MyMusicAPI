@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace MyMusic.Core
+namespace MyMusic.Core.Models
 {
     public class Artist
     {

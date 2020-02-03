@@ -64,7 +64,7 @@ namespace MyMusic
                 c.SwaggerEndpoint("/swagger/v1/swagger.json","MyMusicAPI");
             });
             app.UseHttpsRedirection();
-
+            
             app.UseRouting();
 
             app.UseAuthorization();

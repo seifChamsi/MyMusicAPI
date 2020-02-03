@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using AutoMapper;
-using MyMusic.Core;
+using MyMusic.Core.Models;
 using MyMusic.Resources;
 
 namespace MyMusic.Mapping
@@ -17,7 +13,11 @@ namespace MyMusic.Mapping
             CreateMap<Artist, ArtistResource>();
 
             CreateMap<MusicResource,Music>();
+           
             CreateMap<ArtistResource, Artist>();
+
+            CreateMap<SaveMusicResource, Music>();
+            CreateMap<Music,SaveMusicResource>();
         }
     }
 }
