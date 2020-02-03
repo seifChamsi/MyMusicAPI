@@ -61,6 +61,48 @@ namespace MyMusic.Controllers
             return Ok(musicResource);
 
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<MusicResource>> UpdateMusic(int id,
+            [FromBody] SaveMusicResource saveMusicResource)
+        {
+            var validator = new SaveMusicResourceValidator();
+            var validationResult = await validator.ValidateAsync(saveMusicResource);
+
+            var requestInvalid = id == 0 || !validationResult.IsValid;
+            if (requestInvalid)
+                return BadRequest();
+
+            var musicToBeUpdated = _musicService.GetMusicById(id);
+            if (musicToBeUpdated == null)
+                return NotFound();
+
+            var music = _mapper.Map<SaveMusicResource, Music>(saveMusicResource);
+
+            await _musicService.UpdateMusic(await musicToBeUpdated, music);
+
+            var updatedMusic = await _musicService.GetMusicById(id);
+            var updateMusicResource = _mapper.Map<Music, MusicResource>(updatedMusic);
+
+            return Ok(updateMusicResource);
+
+        }
+
+        [HttpDelete("{id}")]
+
+        public async Task<ActionResult> DeleteMusic(int id)
+        {
+            if (id == 0)
+                BadRequest();
+
+            var musicToDelete = _musicService.GetMusicById(id);
+            if (musicToDelete == null)
+                return NotFound();
+
+            await _musicService.DeleteMusic(await musicToDelete);
+
+            return NoContent();
+        }
     }
 }
  
